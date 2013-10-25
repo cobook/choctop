@@ -1,7 +1,7 @@
 module ChocTop
   module Dmg
     def codesign_executable
-      sh "codesign -f -v -s '#{codesign_identity}' '#{build_products}/#{name}.app'"
+      sh "codesign --deep -f -v -s '#{codesign_identity}' '#{build_products}/#{name}.app'"
       # this next step just provides the new codesigning info for confirmation
       sh "codesign -dv '#{build_products}/#{name}.app'"
     end
